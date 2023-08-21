@@ -15,6 +15,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String btnName = "Click";
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +34,38 @@ class _MyAppState extends State<MyApp> {
         ),
         //Adiciona um botão centralizado na pagina
         body: Center(
-          child: ElevatedButton(
-              onPressed: () {
-                //"Diz" para o flutter que o conteudo exibido sera alterado e para que o mesmo sera alterado
-                setState(() {
-                  btnName = 'Voce clicou';
-                });
-              },
-              child: Text(btnName)),
+          child: currentIndex == 0 ? Container(
+            //infimity:Faz com que a largura seja a largura maxima da tela
+            width: double.infinity,
+            height: double.infinity,
+            color: Colors.white70,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                    style:ElevatedButton.styleFrom(
+                      foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                      backgroundColor: Colors.greenAccent  
+                    ),
+                    onPressed: () {
+                      //"Diz" para o flutter que o conteudo exibido sera alterado
+                      setState(() {
+                        btnName = 'Voce clicou';
+                      });
+                    },
+                    child: Text(btnName)),
+                ElevatedButton(
+                    onPressed: () {
+                      //"Diz" para o flutter que o conteudo exibido sera alterado
+                      setState(() {
+                        btnName = 'Voce clicou';
+                      });
+                    },
+                    child: Text(btnName))
+              ],
+            ),
+          ): Image.asset('images/city.png'),
         ),
         //Adicioa botoes de navegação na parte inferior(bottom) da pa
         bottomNavigationBar: BottomNavigationBar(
@@ -59,6 +84,12 @@ class _MyAppState extends State<MyApp> {
             BottomNavigationBarItem(
                 label: 'Settings', icon: Icon(Icons.settings))
           ],
+          currentIndex: currentIndex,
+          onTap: (int index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
         ),
       ),
     );
