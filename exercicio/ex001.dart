@@ -1,7 +1,7 @@
 import 'dart:io';
 
-void tempo(String hora){
-  int time = int.parse(hora);
+void tempo(int time){
+
   int hour = time~/3600;
   int restoSeg = time%3600;
   int min = restoSeg~/60;
@@ -13,9 +13,8 @@ void tempo(String hora){
 void main(){
 
   print("Informe a duração de um evento");
-  String hora = stdin.readLineSync()!;
-  String segundo = hora;
-  tempo(segundo);
+  int time = int.parse(stdin.readLineSync()!);
+  tempo(time);
   
 }
 
