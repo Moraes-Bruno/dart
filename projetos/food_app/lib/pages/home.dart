@@ -10,8 +10,26 @@ class HomePage extends StatelessWidget {
       appBar: appBar(),
       backgroundColor: Colors.white,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          searchBar()
+          searchBar(),
+          const SizedBox(
+            height: 40,
+          ),
+          const Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left:20),
+                child: Text(
+                  'Category',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600),
+                ),
+              )
+            ],
+          )
         ],
       ),
     );
@@ -19,28 +37,25 @@ class HomePage extends StatelessWidget {
 
   Container searchBar() {
     return Container(
-          margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
-          decoration: const BoxDecoration(boxShadow: [
-            BoxShadow(
-                color: Color.fromARGB(12, 0, 0, 0),
-                blurRadius: 40,
-                spreadRadius: 0.0)
-          ]),
-          child: TextField(
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: const EdgeInsets.all(15),
-                hintText: 'Search Pão de Queijo',
-                hintStyle: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 14
-                ),
-                prefixIcon: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: SvgPicture.asset('assets/icons/Search.svg')),
-                suffixIcon: Container( 
-                  width: 100,
+      margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+      decoration: const BoxDecoration(boxShadow: [
+        BoxShadow(
+            color: Color.fromARGB(12, 0, 0, 0),
+            blurRadius: 40,
+            spreadRadius: 0.0)
+      ]),
+      child: TextField(
+        decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            contentPadding: const EdgeInsets.all(15),
+            hintText: 'Search Pão de Queijo',
+            hintStyle: const TextStyle(color: Colors.black, fontSize: 14),
+            prefixIcon: Padding(
+                padding: const EdgeInsets.all(12),
+                child: SvgPicture.asset('assets/icons/Search.svg')),
+            suffixIcon: Container(
+                width: 100,
                 child: IntrinsicHeight(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -57,12 +72,12 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 )),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide.none,
-                )),
-          ),
-        );
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide.none,
+            )),
+      ),
+    );
   }
 
   AppBar appBar() {
