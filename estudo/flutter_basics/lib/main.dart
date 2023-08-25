@@ -43,6 +43,7 @@ class _MyAppState extends State<MyApp> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                
                 ElevatedButton(
                     style:ElevatedButton.styleFrom(
                       foregroundColor: const Color.fromARGB(255, 0, 0, 0),
@@ -54,6 +55,7 @@ class _MyAppState extends State<MyApp> {
                         btnName = 'Voce clicou';
                       });
                     },
+
                     child: Text(btnName)),
                 ElevatedButton(
                     onPressed: () {
@@ -65,7 +67,7 @@ class _MyAppState extends State<MyApp> {
                     child: Text(btnName))
               ],
             ),
-          ): Image.asset('images/city.png'),
+          ): Image.asset('assets/images/city.jpg'),
         ),
         //Adicioa botoes de navegação na parte inferior(bottom) da pa
         bottomNavigationBar: BottomNavigationBar(
