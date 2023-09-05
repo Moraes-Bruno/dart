@@ -1,15 +1,28 @@
-int palavras(List<String>nomes){
+int contarPalavras(List<String> nomes) {
   int soma = 0;
-  String word;
+  Set<String> palavrasUnicas = {};
 
-  for(String name in nomes){
-    if(word != nomes
+  for (String nome in nomes) {
+    if (!palavrasUnicas.contains(nome)) {
+      palavrasUnicas.add(nome);
+      soma++;
+    }
   }
+  return soma;
 }
 
-void main(){
-  List<String> nomes = ["bruno","bruno","vinicius","vinicius","luan","luan"];
-  int unico = palavras(nomes);
+void main() {
+  List<String> nomes = [
+    "bruno",
+    "bruno",
+    "vinicius",
+    "vinicius",
+    "luan",
+    "luan"
+  ];
 
-  print(unico)
+  int unico = contarPalavras(nomes);
+
+  print(unico); // Deve imprimir 3, que são as palavras únicas na lista.
 }
+
