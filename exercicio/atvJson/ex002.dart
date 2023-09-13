@@ -1,3 +1,7 @@
+/*Crie um objeto JSON contendo informações sobre um livro (título, autor, ano de
+publicação). Em seguida, adicione um campo "gênero" a esse objeto JSON e, por fim,
+imprima o objeto atualizado*/
+
 import 'dart:convert';
 
 String produtos() {

@@ -1,3 +1,7 @@
+/*Crie um arquivo JSON com uma lista de objetos representando produtos (por
+exemplo, nome, preço, categoria). Em seguida, escreva um programa em Dart que leia
+esse arquivo JSON e exiba os produtos no console*/
+
 import 'dart:convert';
 
 String produtos() {
