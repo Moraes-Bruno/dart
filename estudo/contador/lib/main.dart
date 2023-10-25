@@ -51,11 +51,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return (Container(
+      //Estilização body (fundo da pagina)
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("../assets/images/clay-banks-u27Rrbs9Dwc-unsplash.jpg"),
           fit: BoxFit.cover)),
           child:  Column(
+            //Alinha o conteudo da coluna no meio da pagina
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
@@ -67,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: TextDecoration.none
                 ),
               ),
+              //Adiciona um padding ao contador
                Padding(
                 padding: const EdgeInsets.all(40),
                 child: Text(
@@ -80,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
                Row(
+                //Alinha os botoes no meio da linha
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
