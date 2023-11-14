@@ -12,22 +12,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late final Box<String> _myBox;
+  //referencia a caixa do hive
+  final _myBox = Hive.box('mybox');
   ToDoDataBase db = ToDoDataBase();
 
   @override
   void initState() {
-    super.initState();
-    _initBox();
-  }
-
-  Future<void> _initBox() async {
-    _myBox = await Hive.openBox('mybox');
-    if (_myBox.get("TODOLIST") == null) {
+    //cria os dados iniciais se for a primeira vez que o app for aberto
+    if(_myBox.get("TODOLIST") == null){
       db.createInitialData();
-    } else {
-      db.loadData();
+    }else{
+    //o app ja foi aberto mais de uma vez
+    db.loadData();
     }
+    super.initState();
   }
 
   // Controller do texto
@@ -99,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,
         backgroundColor: Colors.blueGrey,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       // Utilizado para exibir uma lista de itens, possui rolagem vertical
       body: ListView.builder(
