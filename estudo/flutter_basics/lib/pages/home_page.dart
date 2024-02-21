@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/pages/next_page.dart';
 
 //StatelessWidget: O estado(conteudo) da pagina não se altera
 //StatefulWidget: O estado(conteudo) da pagina se altera
@@ -13,9 +14,9 @@ class homePage extends StatefulWidget {
 // ignore: camel_case_types
 class _homePageState extends State<homePage> {
   //Variavel
-  String btnText = 'Clique aqui';
   String btnText2 = 'Clique aqui tambem';
   int currentIndex = 0;
+  bool _isclicked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +45,13 @@ class _homePageState extends State<homePage> {
                               255, 223, 175, 233), // Background color
                         ),
                         onPressed: () {
-                          //Altera/define o estado da pagina
-                          setState(() {
-                            btnText = 'Clicado';
-                          });
-                          //Obs: Não utilizar print em produção
-                          print('alguma coisa');
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) => const NextPage(),
+                          ));
                         },
-                        child: Text(
-                          btnText,
-                          style: const TextStyle(color: Colors.blueGrey),
+                        child: const Text(
+                          'Next Page',
+                          style: TextStyle(color: Colors.blueGrey),
                         )),
                     const SizedBox(
                       height: 20,
@@ -69,8 +67,6 @@ class _homePageState extends State<homePage> {
                           setState(() {
                             btnText2 = 'Clicado';
                           });
-                          //Obs: Não utilizar print em produção
-                          print('alguma coisa');
                         },
                         child: Text(
                           btnText2,
@@ -79,7 +75,16 @@ class _homePageState extends State<homePage> {
                   ],
                 ),
               )
-            : Image.network('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/97/39/7f/caption.jpg?w=1200&h=-1&s=1&cx=1920&cy=1080&chk=v1_f31158e4bb953d28a308'),
+            : GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isclicked = !_isclicked;
+                    print(_isclicked);
+                  });
+                },
+                child: _isclicked ? Image.network(
+                    'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/97/39/7f/caption.jpg?w=1200&h=-1&s=1&cx=1920&cy=1080&chk=v1_f31158e4bb953d28a308') : null,
+              ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color.fromARGB(255, 230, 238, 245),
