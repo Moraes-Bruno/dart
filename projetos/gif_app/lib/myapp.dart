@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       title: 'Buscador de gifs',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
       home: const HomePage(),
